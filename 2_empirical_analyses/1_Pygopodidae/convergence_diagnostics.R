@@ -14,6 +14,8 @@ gmrf2 <- read.table("2_empirical_analyses/output/Pygopodidae_GMRFBDP_2.log",head
 gmrf3 <- read.table("2_empirical_analyses/output/Pygopodidae_GMRFBDP_3.log",header=TRUE,row.names=1)
 gmrf4 <- read.table("2_empirical_analyses/output/Pygopodidae_GMRFBDP_4.log",header=TRUE,row.names=1)
 
+# Run 4 of the HSMRF failed to converge so we leave it out
+
 # PSRF
 hsrf.convergence <- diagnoseConvergence(list(hsrf1,hsrf3,hsrf4),FALSE)
 gmrf.convergence <- diagnoseConvergence(list(gmrf1,gmrf2,gmrf3,gmrf4),FALSE)

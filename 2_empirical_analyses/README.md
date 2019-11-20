@@ -50,8 +50,13 @@ There is also code for running fixed-tree analyses over a variety of grid sizes,
 
 
 ## Software
-To make any plots, the R package latex2exp (version 0.4.0 or higher) is required.
-To reproduce preliminary analyses of the HIV dataset, the R packages phangorn (version 2.5.5 or higher) and treedater (version 0.3.0 or higher) are necessary.
-To reproduce the [RAxML ](https://cme.h-its.org/exelixis/web/software/raxml/index.html) analysis, RAxML version 8.2.12 or higher is required (see the RAxML_info file for more details).
+The following R packages are required:
+
+  - latex2exp (version 0.4.0 or higher)
+  - phangorn (version 2.5.5 or higher)
+  - treedater (version 0.3.0 or higher)
+  - TreeSim (version 2.3 or higher)
+
+To reproduce the [RAxML](https://cme.h-its.org/exelixis/web/software/raxml/index.html) analysis, RAxML version 8.2.12 or higher is required (see the RAxML_info file for more details).
 To run partitioning on Pygopodidae dataset, PartitionFinder version 1.1.1 (or higher, but not version 2.X) is required.
 Running BEAST requires [BEAST2](https://www.beast2.org/) version 2.6.0 or higher and the BEAST package BDSKY version 1.4.5 or higher.

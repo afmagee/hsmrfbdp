@@ -70,6 +70,9 @@ for (i in 1:(length(interval.times)-1)) {
 }
 abline(h=1,lty=2)
 
+#######
+# Plots!
+#######
 
 r <- range(c(unlist(Re.beast.10),unlist(Re.beast.90)*1.1),na.rm=TRUE)
 y1 <- -0.5
@@ -96,7 +99,10 @@ for (i in 1:length(beast.bt.freqs)) {
 
 dev.off()
 
+#######
 # Bayes Factors
+#######
+
 beast.fold.change.end.90s <- beast.Re[,6]/beast.Re[,5]
 quantile(beast.fold.change.end.90s,c(0.05,0.95))
 beast.pr.post.shift.end.90s <- sum(beast.fold.change.end.90s > 1)/length(beast.fold.change.end.90s)

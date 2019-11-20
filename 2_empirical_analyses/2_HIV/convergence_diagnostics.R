@@ -14,9 +14,11 @@ gmrf2 <- read.table("2_empirical_analyses/output/HIV_env_GMRFBDP_2.log",header=T
 gmrf3 <- read.table("2_empirical_analyses/output/HIV_env_GMRFBDP_3.log",header=TRUE,row.names=1)
 gmrf4 <- read.table("2_empirical_analyses/output/HIV_env_GMRFBDP_4.log",header=TRUE,row.names=1)
 
+# Runs 3 and 4 of the HSMRF and run 4 of the GMRF failed to converge, so we leave them out
+
 # PSRF
-hsrf.convergence <- diagnoseConvergence(list(hsrf1,hsrf2,hsrf4),FALSE)
-gmrf.convergence <- diagnoseConvergence(list(gmrf1,gmrf2),FALSE)
+hsrf.convergence <- diagnoseConvergence(list(hsrf1,hsrf2),FALSE)
+gmrf.convergence <- diagnoseConvergence(list(gmrf1,gmrf2,gmrf3),FALSE)
 
 # exclude branch rate parameters
 hsrf.names <- rownames(hsrf.convergence)
@@ -34,8 +36,8 @@ gmrf.convergence <- gmrf.convergence[!names(gmrf.convergence) == "Iteration"]
 max(gmrf.convergence)
 
 # ESS
-hsrf.ess <- rankESS(list(hsrf1,hsrf2,hsrf4))
-gmrf.ess <- rankESS(list(gmrf1,gmrf2))
+hsrf.ess <- rankESS(list(hsrf1,hsrf2))
+gmrf.ess <- rankESS(list(gmrf1,gmrf2,gmrf3))
 
 # exclude branch rate parameters
 hsrf.is.branchrate <- grepl("branch_rates",names(hsrf.ess))
