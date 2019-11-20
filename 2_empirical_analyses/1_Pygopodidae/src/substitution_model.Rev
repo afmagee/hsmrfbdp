@@ -1,0 +1,45 @@
+# Multivariate moves on substitution model components
+avmvn_pygo_subset_1 = mvAVMVN(sigmaSquared=1.0, epsilon=0.01, waitBeforeLearning=5000, waitBeforeUsing=10000, maxUpdates=25000, weight=2.0)
+avmvn_pygo_subset_2 = mvAVMVN(sigmaSquared=1.0, epsilon=0.01, waitBeforeLearning=5000, waitBeforeUsing=10000, maxUpdates=25000, weight=2.0)
+
+# Substitution models (partition by gene as in Antonelli and Sanmartin)
+alpha_prior_logmean <- ln(2.0) # The logmean is the median
+alpha_prior_logsd <- 2*0.587405 # Prior has 95% CI spanning 2 orders of magnitude, from logmean / 10 to logmean * 10
+
+# Pygopodidae subset 1
+er_pygo_subset_1 ~ dnDirichlet(v(1,1,1,1,1,1))
+
+pi_pygo_subset_1 ~ dnDirichlet(v(1,1,1,1))
+
+Q_pygo_subset_1 := fnGTR(er_pygo_subset_1,pi_pygo_subset_1)
+
+alpha_pygo_subset_1 ~ dnLognormal( alpha_prior_logmean, alpha_prior_logsd )
+sr_pygo_subset_1 := fnDiscretizeGamma( alpha_pygo_subset_1, alpha_pygo_subset_1, 4, false )
+
+avmvn_pygo_subset_1.addVariable(er_pygo_subset_1)
+avmvn_pygo_subset_1.addVariable(pi_pygo_subset_1)
+avmvn_pygo_subset_1.addVariable(alpha_pygo_subset_1)
+
+# Pygopodidae subset 2
+er_pygo_subset_2 ~ dnDirichlet(v(1,1,1,1,1,1))
+
+pi_pygo_subset_2 ~ dnDirichlet(v(1,1,1,1))
+
+Q_pygo_subset_2 := fnGTR(er_pygo_subset_2,pi_pygo_subset_2)
+
+alpha_pygo_subset_2 ~ dnLognormal( alpha_prior_logmean, alpha_prior_logsd )
+sr_pygo_subset_2 := fnDiscretizeGamma( alpha_pygo_subset_2, alpha_pygo_subset_2, 4, false )
+
+avmvn_pygo_subset_2.addVariable(er_pygo_subset_2)
+avmvn_pygo_subset_2.addVariable(pi_pygo_subset_2)
+avmvn_pygo_subset_2.addVariable(alpha_pygo_subset_2)
+
+moves[++mvi] = avmvn_pygo_subset_1
+moves[++mvi] = avmvn_pygo_subset_2
+
+# Set up the model to run
+ctmc_pygo_subset_1 ~ dnPhyloCTMC(tree=psi_pygo, Q=Q_pygo_subset_1, branchRates=branch_rates_pygo_subset_1, siteRates=sr_pygo_subset_1, type="DNA")
+ctmc_pygo_subset_1.clamp(pygo_subset_1)
+
+ctmc_pygo_subset_2 ~ dnPhyloCTMC(tree=psi_pygo, Q=Q_pygo_subset_2, branchRates=branch_rates_pygo_subset_2, siteRates=sr_pygo_subset_2, type="DNA")
+ctmc_pygo_subset_2.clamp(pygo_subset_2)

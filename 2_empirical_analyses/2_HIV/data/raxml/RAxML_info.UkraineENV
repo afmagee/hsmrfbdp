@@ -1,0 +1,87 @@
+
+
+IMPORTANT WARNING: Sequences 2000.RU.A1.00034.JF952013 and 1999.RU.A1.00038.JF952014 are exactly identical
+
+
+IMPORTANT WARNING: Sequences 2000.RU.A1.00034.JF952013 and 2000.RU.A1.00031.JF952012 are exactly identical
+
+IMPORTANT WARNING
+Found 2 sequences that are exactly identical to other sequences in the alignment.
+Normally they should be excluded from the analysis.
+
+Just in case you might need it, an alignment file with 
+sequence duplicates removed is printed to file env_subtA.fas.reduced
+
+
+Using BFGS method to optimize GTR rate parameters, to disable this specify "--no-bfgs" 
+
+
+
+This is RAxML version 8.2.12 released by Alexandros Stamatakis on May 2018.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 274 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 0.02%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+ML estimate of 25 per site rate categories
+
+Likelihood of final tree will be evaluated and optimized under GAMMA
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 274
+Name: No Name Provided
+DataType: DNA
+Substitution Matrix: GTR
+
+
+
+
+RAxML was called as follows:
+
+raxml -mGTRCAT -nUkraineENV -s env_subtA.fas -p 1234 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.401 0.176 0.190 0.233 
+
+Inference[0]: Time 12.552330 CAT-based likelihood -6551.459131, best rearrangement setting 15
+alpha[0]: 1.000000 rates[0] ac ag at cg ct gt: 2.004355 4.580987 0.498019 0.681644 3.935042 1.000000 
+
+
+Conducting final model optimizations on all 1 trees under GAMMA-based models ....
+
+Inference[0] final GAMMA-based Likelihood: -7144.770964 tree written to file /home/andy/Dropbox/UW/Horseshoe_proof_of_concept/2_empirical_analyses/2_HIV/data/RAxML_result.UkraineENV
+
+
+Starting final GAMMA-based thorough Optimization on tree 0 likelihood -7144.770964 .... 
+
+Final GAMMA-based Score of best tree -7141.522453
+
+Program execution info written to /home/andy/Dropbox/UW/Horseshoe_proof_of_concept/2_empirical_analyses/2_HIV/data/RAxML_info.UkraineENV
+Best-scoring ML tree written to: /home/andy/Dropbox/UW/Horseshoe_proof_of_concept/2_empirical_analyses/2_HIV/data/RAxML_bestTree.UkraineENV
+
+Overall execution time: 17.891173 secs or 0.004970 hours or 0.000207 days
+

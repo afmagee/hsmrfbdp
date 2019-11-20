@@ -1,0 +1,88 @@
+age_env <- 29.1 # Estimate of age from TreeDater using strict clock and RAxML tree
+
+# set number of diversification regimes
+grid_end <- age_env
+NUM_INTERVALS = 100
+NUM_BREAKS = NUM_INTERVALS - 1
+interval_times <- abs(grid_end * seq(1, NUM_BREAKS, 1)/NUM_INTERVALS)
+
+sampling_at_present_env <- 0
+
+treedater = readTrees("2_HIV/data/treedater.tre")[1]
+
+####################
+# Create the rates #
+####################
+
+birth_rate_logmean_env <- ln(ln(num_taxa_env)/age_env) # Really an estimate of lambda - mu - phi, but it's the best we can get
+birth_rate_logsd <- 2*0.587405
+
+birth_rate_at_present_env ~ dnLognormal(birth_rate_logmean_env,birth_rate_logsd)
+moves[++mvi] = mvScaleBactrian(birth_rate_at_present_env,weight=2)
+
+# We can place a prior on the rate of becoming non-infectious by thinking about the duration of infectivity
+# Following Vasylyeva et al. (2016), we can use the estimated time from infection from Longini et al. of [8.4,11.2]
+# We translate this to a lognormal prior on mu with a 95% CI of [1/11.2,1/8.4]
+death_rate_env ~ dnLognormal(-2.272073,0.07338961)
+moves[++mvi] = mvScaleBactrian(death_rate_env,weight=2)
+
+# Global shrinkage parameter
+zeta_birth_rate <- 0.0094
+
+gamma_birth_rate ~ dnHalfCauchy(0,1)
+
+#   gamma_birth_rate.setValue(runif(1,0.05,0.2)[1])
+
+for (i in 1:(NUM_INTERVALS-1)) {
+  index = i+1
+
+  # We parameterize our random fields in terms of the forward differences and birth_rate rate at the present
+  delta_log_birth_rate[i] ~ dnNormal( mean=0, sd=gamma_birth_rate*zeta_birth_rate )
+
+  # Make sure values initialize to something reasonable
+  delta_log_birth_rate[i].setValue(runif(1,-0.05,0.05)[1])
+
+}
+
+# transform the differences in log-rate into the non-log rates
+birth_rate_env := fnassembleContinuousMRF(birth_rate_at_present_env,delta_log_birth_rate,initialValueIsLogScale=false,order=1)
+
+moves[++mvi] = mvEllipticalSliceSamplingSimple(delta_log_birth_rate,weight=5.0,tune=FALSE,forceAccept=TRUE)
+moves[++mvi] = mvGMRFHyperpriorGibbs(gamma_birth_rate, delta_log_birth_rate, zeta_birth_rate,weight=5.0)
+
+# Prior (constant) serial sampling rate
+# We ballpark the prior by assuming that the number of infections over the course of time we have sampled is on the order 1e6
+# Of this, we have 92 samples, so the sampling probability is 9.2e-05
+# If we assume infections last approximately 10 years as above, then 10 * phi = 9.2e-05 => phi = 9.2e-6 ~= 1e-5
+serial_sampling_rate ~ dnExponential(1e-5)
+moves[++mvi] = mvScaleBactrian(serial_sampling_rate,weight=2)
+
+# We assume that treatment leads to becoming noninfectious
+treatment <- 1
+
+# Prior on our root ages
+root_height_env ~ dnNormal(age_env,5.0,min=18.0,max=1000.0) # Root cannot be younger than oldest serial sample, Rev requires a max, so we throw in a large number
+moves[++mvi] = mvSlideBactrian(root_height_env, sigma=1.0, weight=5.0)
+moves[++mvi] = mvScaleBactrian(root_height_env, lambda=1.0, weight=2.0)
+
+psi_env ~ dnBDSTP(
+  rootAge                                   = root_height_env,
+  timeline                                  = interval_times,
+  lambda                                    = birth_rate_env,
+  mu                                        = death_rate_env,
+  Phi                                       = sampling_at_present_env,
+  phi                                       = serial_sampling_rate,
+  r                                         = treatment,
+  condition                                 = "time",
+  taxa                                      = taxa_env,
+  initialTree                               = treedater)
+
+# Moves on node times
+moves[++mvi] = mvNodeTimeSlideUniform(psi_env, weight=25.0)
+moves[++mvi] = mvNodeTimeScale(psi_env, weight=25.0)
+moves[++mvi] = mvSubtreeScale(psi_env, weight=20.0)
+moves[++mvi] = mvNodeTimeSlidePathTruncatedNormal(psi_env,weight=15.0)
+
+# Moves on tree topology
+moves[++mvi] = mvFNPR(psi_env, weight=35.0)
+moves[++mvi] = mvNarrow(psi_env, weight=90.0)

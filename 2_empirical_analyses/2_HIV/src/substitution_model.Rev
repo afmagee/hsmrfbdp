@@ -1,0 +1,26 @@
+# Multivariate moves on substitution model components
+avmvn_env = mvAVMVN(sigmaSquared=1.0, epsilon=0.01, waitBeforeLearning=5000, waitBeforeUsing=10000, maxUpdates=25000, weight=2.0)
+
+# Substitution models
+alpha_prior_logmean <- ln(2.0) # The logmean is the median
+alpha_prior_logsd <- 2*0.587405 # Prior has 95% CI spanning 2 orders of magnitude, from logmean / 10 to logmean * 10
+
+# Pygopodidae subset 1
+er_env ~ dnDirichlet(v(1,1,1,1,1,1))
+
+pi_env ~ dnDirichlet(v(1,1,1,1))
+
+Q_env := fnGTR(er_env,pi_env)
+
+alpha_env ~ dnLognormal( alpha_prior_logmean, alpha_prior_logsd )
+sr_env := fnDiscretizeGamma( alpha_env, alpha_env, 4, false )
+
+avmvn_env.addVariable(er_env)
+avmvn_env.addVariable(pi_env)
+avmvn_env.addVariable(alpha_env)
+
+moves[++mvi] = avmvn_env
+
+# Set up the model to run
+ctmc_env ~ dnPhyloCTMC(tree=psi_env, Q=Q_env, branchRates=branch_rates_env, siteRates=sr_env, type="DNA")
+ctmc_env.clamp(env_data)

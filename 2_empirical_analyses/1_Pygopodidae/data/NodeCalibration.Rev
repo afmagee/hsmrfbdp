@@ -1,0 +1,27 @@
+### now we additionally add a deterministic variable for the age of some clades
+
+# Rev doesn't apply calibrations but rather treats fossils as data
+# Uniform calibrations translate easily from BEAST's priors to this format
+
+# Calibrations for Pygopodidae
+apprasia = clade("Aprasia.picturata","Aprasia.pulchella","Aprasia.rostrata","Aprasia.repens","Aprasia.smithi","Aprasia.aurita","Aprasia.inaurita","Aprasia.striolata","Aprasia.pseudopulchella","Aprasia.parapulchella")
+age_apprasia := tmrca(psi_pygo, apprasia)
+min_age_apprasia <- 8.5
+max_age_apprasia <- 17.0
+mean_age_apprasia <- (min_age_apprasia + max_age_apprasia) / 2
+radius_apprasia <- (min_age_apprasia - max_age_apprasia) / 2
+ub_apprasia := age_apprasia - radius_apprasia
+lb_apprasia := age_apprasia + radius_apprasia
+calibration_apprasia ~ dnUniform(lb_apprasia,ub_apprasia)
+calibration_apprasia.clamp(mean_age_apprasia)
+
+delma = clade("Delma.concinna","Delma.torquata","Delma.australis","Delma.hebesa","Delma.mitella","Delma.nasuta","Delma.inornata","Delma.grayii","Delma.haroldi","Delma.butleri","Delma.petersoni","Delma.fraseri","Delma.plebeia","Delma.impar","Delma.molleri","Delma.labialis","Delma.elegans","Delma.borea","Delma.pax","Delma.desmosa","Delma.tincta","Delma.tealei")
+age_delma := tmrca(psi_pygo, delma)
+min_age_delma <- 14.0
+max_age_delma <- 22.5
+mean_age_delma <- (min_age_delma + max_age_delma) / 2
+radius_delma <- (min_age_delma - max_age_delma) / 2
+ub_delma := age_delma - radius_delma
+lb_delma := age_delma + radius_delma
+calibration_delma ~ dnUniform(lb_delma,ub_delma)
+calibration_delma.clamp(mean_age_delma)

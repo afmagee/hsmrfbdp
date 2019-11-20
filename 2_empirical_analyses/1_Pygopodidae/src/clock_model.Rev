@@ -1,0 +1,32 @@
+# We place a diffuse lognormal prior on all clock means, with a 95% prior CI spanning [1e-4,1] per million years or [1e-10,1e-6] per year
+clock_mu_prior_mean <- ln(0.001)
+clock_mu_prior_var <- 4*0.587405
+
+# Branch rates for Pygopodidae subset 1
+clock_mu_pygo_subset_1 ~ dnNormal(clock_mu_prior_mean,clock_mu_prior_var)
+moves[++mvi] = mvSlideBactrian(clock_mu_pygo_subset_1,weight=2.0)
+moves[++mvi] = mvRandomDive(clock_mu_pygo_subset_1,weight=2.0)
+moves[++mvi] = mvMirror(clock_mu_pygo_subset_1,weight=2.0)
+
+clock_sigma_pygo_subset_1 ~ dnExponential(3)
+moves[++mvi] = mvScaleBactrian(clock_sigma_pygo_subset_1, lambda=0.1, weight=3.0)
+
+for (i in 1:num_branches_pygo) {
+  branch_rates_pygo_subset_1[i] ~ dnLognormal(clock_mu_pygo_subset_1,clock_sigma_pygo_subset_1)
+  moves[++mvi] = mvScaleBactrian(branch_rates_pygo_subset_1[i], weight=0.5)
+}
+
+
+# Branch rates for Pygopodidae subset 1
+clock_mu_pygo_subset_2 ~ dnNormal(clock_mu_prior_mean,clock_mu_prior_var)
+moves[++mvi] = mvSlideBactrian(clock_mu_pygo_subset_2,weight=2.0)
+moves[++mvi] = mvRandomDive(clock_mu_pygo_subset_2,weight=2.0)
+moves[++mvi] = mvMirror(clock_mu_pygo_subset_2,weight=2.0)
+
+clock_sigma_pygo_subset_2 ~ dnExponential(3)
+moves[++mvi] = mvScaleBactrian(clock_sigma_pygo_subset_2, lambda=0.1, weight=3.0)
+
+for (i in 1:num_branches_pygo) {
+  branch_rates_pygo_subset_2[i] ~ dnLognormal(clock_mu_pygo_subset_2,clock_sigma_pygo_subset_2)
+  moves[++mvi] = mvScaleBactrian(branch_rates_pygo_subset_2[i], weight=0.5)
+}

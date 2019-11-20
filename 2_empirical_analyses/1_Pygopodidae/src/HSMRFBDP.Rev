@@ -1,0 +1,84 @@
+# Age estimates from Brennan and Oliver, for setting priors
+beast_age_pygo <- 24.8
+
+# set number of diversification regimes
+grid_end <- 29.0 # Maximum age of either tree
+NUM_INTERVALS = 100
+NUM_BREAKS = NUM_INTERVALS - 1
+interval_times <- abs(grid_end * seq(1, NUM_BREAKS, 1)/NUM_INTERVALS)
+
+
+rho_pygo <- num_species_pygo/46
+
+####################
+# Create the rates #
+####################
+
+speciation_logmean_pygo <- ln(ln(num_species_pygo/rho_pygo/2)/beast_age_pygo)
+speciation_logsd <- 2*0.587405
+
+speciation_at_present_pygo ~ dnLognormal(speciation_logmean_pygo,speciation_logsd)
+moves[++mvi] = mvScaleBactrian(speciation_at_present_pygo,weight=2)
+
+extinction_pygo ~ dnExponential(10)
+moves[++mvi] = mvScaleBactrian(extinction_pygo,weight=2)
+
+# Global shrinkage parameter
+zeta_speciation <- 0.0021
+
+gamma_speciation ~ dnHalfCauchy(0,1)
+
+#   gamma_speciation.setValue(runif(1,0.05,0.2)[1])
+
+for (i in 1:(NUM_INTERVALS-1)) {
+  index = i+1
+
+  # Variable-scaled variances for hierarchical horseshoe
+  sigma_speciation[i] ~ dnHalfCauchy(0,1)
+
+  sigma_speciation[i].setValue(runif(1,0.05,0.2)[1])
+
+  # We parameterize our random fields in terms of the forward differences and speciation rate at the present
+  delta_log_speciation[i] ~ dnNormal( mean=0, sd=sigma_speciation[i]*gamma_speciation*zeta_speciation )
+
+  # Make sure values initialize to something reasonable
+  delta_log_speciation[i].setValue(runif(1,-0.05,0.05)[1])
+
+}
+
+# transform the differences in log-rate into the non-log rates
+speciation_pygo := fnassembleContinuousMRF(speciation_at_present_pygo,delta_log_speciation,initialValueIsLogScale=false,order=1)
+
+moves[++mvi] = mvEllipticalSliceSamplingSimple(delta_log_speciation,weight=5.0,tune=FALSE,forceAccept=TRUE)
+moves[++mvi] = mvHSRFHyperpriorsGibbs(gamma_speciation, sigma_speciation, delta_log_speciation, zeta_speciation,weight=5.0)
+
+# Prior on our root ages
+root_height_pygo ~ dnUniform(19.5,29.0)
+moves[++mvi] = mvSlideBactrian(root_height_pygo, sigma=1.0, weight=5.0)
+moves[++mvi] = mvScaleBactrian(root_height_pygo, lambda=1.0, weight=2.0)
+
+psi_pygo ~ dnEpisodicBirthDeath(
+  rootAge                                   = root_height_pygo,
+  lambdaRates                               = speciation_pygo,
+  lambdaTimes                               = interval_times,
+  muRates                                   = extinction_pygo,
+  rho                                       = rho_pygo,
+  samplingStrategy                          = "uniform",
+  condition                                 = "time",
+  taxa                                      = taxa_pygo)
+
+# Get the fossil calibrations for the non-root nodes
+source("1_Pygopodidae/data/NodeCalibration.Rev")
+
+# Starting trees within calibration bounds
+psi_pygo.setValue(readTrees("1_Pygopodidae/data/pygo_starting_tree.tre")[1])
+
+# Moves on node times
+moves[++mvi] = mvNodeTimeSlideUniform(psi_pygo, weight=10.0)
+moves[++mvi] = mvNodeTimeScale(psi_pygo, weight=10.0)
+moves[++mvi] = mvSubtreeScale(psi_pygo, weight=10.0)
+moves[++mvi] = mvNodeTimeSlidePathTruncatedNormal(psi_pygo,weight=10.0)
+
+# Moves on tree topology
+moves[++mvi] = mvFNPR(psi_pygo, weight=15.0)
+moves[++mvi] = mvNarrow(psi_pygo, weight=40.0)

@@ -1,0 +1,253 @@
+INFO     | 2019-02-27 17:08:43,852 | config     | Loading configuration at './partition_finder.cfg'
+INFO     | 2019-02-27 17:08:43,858 | config     | Setting 'alignment' to 'Pygopodidae.phy'
+INFO     | 2019-02-27 17:08:43,858 | config     | Setting 'branchlengths' to 'unlinked'
+INFO     | 2019-02-27 17:08:43,859 | parser     | Setting 'models' to a user-specified list
+INFO     | 2019-02-27 17:08:43,859 | parser     | The models included in this analysis are: HKY+G, GTR+I, GTR+G, HKY+I, GTR, HKY, JC+G, JC+I, JC
+INFO     | 2019-02-27 17:08:43,859 | parser     | Setting datatype to 'DNA'
+INFO     | 2019-02-27 17:08:43,859 | config     | Setting 'model_selection' to 'bic'
+INFO     | 2019-02-27 17:08:43,868 | config     | Setting 'search' to 'greedy'
+INFO     | 2019-02-27 17:08:43,868 | config     | ------------------------ BEGINNING NEW RUN -------------------------------
+INFO     | 2019-02-27 17:08:43,869 | config     | Looking for alignment file './Pygopodidae.phy'...
+INFO     | 2019-02-27 17:08:43,869 | analysis   | Beginning Analysis
+INFO     | 2019-02-27 17:08:43,869 | analysis   | Removing Schemes in './analysis/schemes' (they will be recalculated from existing subset data)
+INFO     | 2019-02-27 17:08:43,869 | config     | Checking previously run configuration data...
+INFO     | 2019-02-27 17:08:43,873 | alignment  | Reading alignment file './Pygopodidae.phy'
+INFO     | 2019-02-27 17:08:43,927 | analysis   | No starting tree file found.
+INFO     | 2019-02-27 17:08:43,927 | phyml      | Making BioNJ tree for ./analysis/start_tree/filtered_source.phy
+INFO     | 2019-02-27 17:08:44,213 | phyml      | Estimating GTR+I+G branch lengths on tree
+INFO     | 2019-02-27 17:09:09,627 | phyml      | Branchlength estimation finished
+INFO     | 2019-02-27 17:09:09,627 | analysis   | Starting tree with branch lengths is here: ./analysis/start_tree/filtered_source.phy_phyml_tree.txt
+INFO     | 2019-02-27 17:09:09,627 | method     | Performing greedy analysis
+INFO     | 2019-02-27 17:09:09,627 | progress   | PartitionFinder will have to analyse 211 subsets to complete this analysis
+INFO     | 2019-02-27 17:09:09,627 | progress   | This will result in 561 schemes being created
+INFO     | 2019-02-27 17:09:09,628 | method     | Analysing starting scheme (scheme start_scheme)
+INFO     | 2019-02-27 17:09:10,720 | progress   | Finished subset 1/211, 0.47 percent done
+INFO     | 2019-02-27 17:09:12,167 | progress   | Finished subset 2/211, 0.95 percent done
+INFO     | 2019-02-27 17:09:13,779 | progress   | Finished subset 3/211, 1.42 percent done
+INFO     | 2019-02-27 17:09:14,397 | progress   | Finished subset 4/211, 1.90 percent done
+INFO     | 2019-02-27 17:09:23,751 | progress   | Finished subset 5/211, 2.37 percent done
+INFO     | 2019-02-27 17:09:24,213 | progress   | Finished subset 6/211, 2.84 percent done
+INFO     | 2019-02-27 17:09:25,576 | progress   | Finished subset 7/211, 3.32 percent done
+INFO     | 2019-02-27 17:09:27,808 | progress   | Finished subset 8/211, 3.79 percent done
+INFO     | 2019-02-27 17:09:28,266 | progress   | Finished subset 9/211, 4.27 percent done
+INFO     | 2019-02-27 17:09:29,025 | progress   | Finished subset 10/211, 4.74 percent done
+INFO     | 2019-02-27 17:09:33,500 | progress   | Finished subset 11/211, 5.21 percent done
+INFO     | 2019-02-27 17:09:34,167 | progress   | Finished subset 12/211, 5.69 percent done
+INFO     | 2019-02-27 17:09:34,679 | progress   | Finished subset 13/211, 6.16 percent done
+INFO     | 2019-02-27 17:09:36,211 | progress   | Finished subset 14/211, 6.64 percent done
+INFO     | 2019-02-27 17:09:38,077 | progress   | Finished subset 15/211, 7.11 percent done
+INFO     | 2019-02-27 17:09:38,078 | method     | ***Greedy algorithm step 1***
+INFO     | 2019-02-27 17:09:43,317 | progress   | Finished subset 16/211, 7.58 percent done
+INFO     | 2019-02-27 17:09:46,400 | progress   | Finished subset 17/211, 8.06 percent done
+INFO     | 2019-02-27 17:09:48,256 | progress   | Finished subset 18/211, 8.53 percent done
+INFO     | 2019-02-27 17:09:50,602 | progress   | Finished subset 19/211, 9.00 percent done
+INFO     | 2019-02-27 17:09:52,365 | progress   | Finished subset 20/211, 9.48 percent done
+INFO     | 2019-02-27 17:09:54,363 | progress   | Finished subset 21/211, 9.95 percent done
+INFO     | 2019-02-27 17:09:56,769 | progress   | Finished subset 22/211, 10.43 percent done
+INFO     | 2019-02-27 17:09:59,375 | progress   | Finished subset 23/211, 10.90 percent done
+INFO     | 2019-02-27 17:10:02,138 | progress   | Finished subset 24/211, 11.37 percent done
+INFO     | 2019-02-27 17:10:04,651 | progress   | Finished subset 25/211, 11.85 percent done
+INFO     | 2019-02-27 17:10:06,863 | progress   | Finished subset 26/211, 12.32 percent done
+INFO     | 2019-02-27 17:10:11,191 | progress   | Finished subset 27/211, 12.80 percent done
+INFO     | 2019-02-27 17:10:24,778 | progress   | Finished subset 28/211, 13.27 percent done
+INFO     | 2019-02-27 17:10:27,895 | progress   | Finished subset 29/211, 13.74 percent done
+INFO     | 2019-02-27 17:10:30,332 | progress   | Finished subset 30/211, 14.22 percent done
+INFO     | 2019-02-27 17:10:32,222 | progress   | Finished subset 31/211, 14.69 percent done
+INFO     | 2019-02-27 17:10:34,033 | progress   | Finished subset 32/211, 15.17 percent done
+INFO     | 2019-02-27 17:10:36,131 | progress   | Finished subset 33/211, 15.64 percent done
+INFO     | 2019-02-27 17:10:38,987 | progress   | Finished subset 34/211, 16.11 percent done
+INFO     | 2019-02-27 17:10:40,479 | progress   | Finished subset 35/211, 16.59 percent done
+INFO     | 2019-02-27 17:10:42,403 | progress   | Finished subset 36/211, 17.06 percent done
+INFO     | 2019-02-27 17:10:44,610 | progress   | Finished subset 37/211, 17.54 percent done
+INFO     | 2019-02-27 17:10:47,365 | progress   | Finished subset 38/211, 18.01 percent done
+INFO     | 2019-02-27 17:10:49,853 | progress   | Finished subset 39/211, 18.48 percent done
+INFO     | 2019-02-27 17:10:53,918 | progress   | Finished subset 40/211, 18.96 percent done
+INFO     | 2019-02-27 17:11:03,947 | progress   | Finished subset 41/211, 19.43 percent done
+INFO     | 2019-02-27 17:11:07,631 | progress   | Finished subset 42/211, 19.91 percent done
+INFO     | 2019-02-27 17:11:09,742 | progress   | Finished subset 43/211, 20.38 percent done
+INFO     | 2019-02-27 17:11:11,869 | progress   | Finished subset 44/211, 20.85 percent done
+INFO     | 2019-02-27 17:11:14,040 | progress   | Finished subset 45/211, 21.33 percent done
+INFO     | 2019-02-27 17:11:15,696 | progress   | Finished subset 46/211, 21.80 percent done
+INFO     | 2019-02-27 17:11:17,951 | progress   | Finished subset 47/211, 22.27 percent done
+INFO     | 2019-02-27 17:11:19,825 | progress   | Finished subset 48/211, 22.75 percent done
+INFO     | 2019-02-27 17:11:22,244 | progress   | Finished subset 49/211, 23.22 percent done
+INFO     | 2019-02-27 17:11:25,246 | progress   | Finished subset 50/211, 23.70 percent done
+INFO     | 2019-02-27 17:11:30,657 | progress   | Finished subset 51/211, 24.17 percent done
+INFO     | 2019-02-27 17:11:37,400 | progress   | Finished subset 52/211, 24.64 percent done
+INFO     | 2019-02-27 17:11:50,092 | progress   | Finished subset 53/211, 25.12 percent done
+INFO     | 2019-02-27 17:11:54,319 | progress   | Finished subset 54/211, 25.59 percent done
+INFO     | 2019-02-27 17:11:55,262 | progress   | Finished subset 55/211, 26.07 percent done
+INFO     | 2019-02-27 17:11:59,533 | progress   | Finished subset 56/211, 26.54 percent done
+INFO     | 2019-02-27 17:12:00,626 | progress   | Finished subset 57/211, 27.01 percent done
+INFO     | 2019-02-27 17:12:01,812 | progress   | Finished subset 58/211, 27.49 percent done
+INFO     | 2019-02-27 17:12:02,922 | progress   | Finished subset 59/211, 27.96 percent done
+INFO     | 2019-02-27 17:12:04,941 | progress   | Finished subset 60/211, 28.44 percent done
+INFO     | 2019-02-27 17:12:10,497 | progress   | Finished subset 61/211, 28.91 percent done
+INFO     | 2019-02-27 17:12:12,176 | progress   | Finished subset 62/211, 29.38 percent done
+INFO     | 2019-02-27 17:12:17,502 | progress   | Finished subset 63/211, 29.86 percent done
+INFO     | 2019-02-27 17:12:35,493 | progress   | Finished subset 64/211, 30.33 percent done
+INFO     | 2019-02-27 17:12:37,871 | progress   | Finished subset 65/211, 30.81 percent done
+INFO     | 2019-02-27 17:12:38,673 | progress   | Finished subset 66/211, 31.28 percent done
+INFO     | 2019-02-27 17:12:39,535 | progress   | Finished subset 67/211, 31.75 percent done
+INFO     | 2019-02-27 17:12:40,693 | progress   | Finished subset 68/211, 32.23 percent done
+INFO     | 2019-02-27 17:12:41,487 | progress   | Finished subset 69/211, 32.70 percent done
+INFO     | 2019-02-27 17:12:43,343 | progress   | Finished subset 70/211, 33.18 percent done
+INFO     | 2019-02-27 17:12:45,941 | progress   | Finished subset 71/211, 33.65 percent done
+INFO     | 2019-02-27 17:12:47,258 | progress   | Finished subset 72/211, 34.12 percent done
+INFO     | 2019-02-27 17:12:50,588 | progress   | Finished subset 73/211, 34.60 percent done
+INFO     | 2019-02-27 17:13:07,389 | progress   | Finished subset 74/211, 35.07 percent done
+INFO     | 2019-02-27 17:13:09,298 | progress   | Finished subset 75/211, 35.55 percent done
+INFO     | 2019-02-27 17:13:10,097 | progress   | Finished subset 76/211, 36.02 percent done
+INFO     | 2019-02-27 17:13:11,071 | progress   | Finished subset 77/211, 36.49 percent done
+INFO     | 2019-02-27 17:13:15,340 | progress   | Finished subset 78/211, 36.97 percent done
+INFO     | 2019-02-27 17:13:16,870 | progress   | Finished subset 79/211, 37.44 percent done
+INFO     | 2019-02-27 17:13:19,290 | progress   | Finished subset 80/211, 37.91 percent done
+INFO     | 2019-02-27 17:13:20,745 | progress   | Finished subset 81/211, 38.39 percent done
+INFO     | 2019-02-27 17:13:23,922 | progress   | Finished subset 82/211, 38.86 percent done
+INFO     | 2019-02-27 17:13:45,910 | progress   | Finished subset 83/211, 39.34 percent done
+INFO     | 2019-02-27 17:13:47,846 | progress   | Finished subset 84/211, 39.81 percent done
+INFO     | 2019-02-27 17:13:48,481 | progress   | Finished subset 85/211, 40.28 percent done
+INFO     | 2019-02-27 17:13:49,065 | progress   | Finished subset 86/211, 40.76 percent done
+INFO     | 2019-02-27 17:13:50,430 | progress   | Finished subset 87/211, 41.23 percent done
+INFO     | 2019-02-27 17:13:52,273 | progress   | Finished subset 88/211, 41.71 percent done
+INFO     | 2019-02-27 17:13:53,620 | progress   | Finished subset 89/211, 42.18 percent done
+INFO     | 2019-02-27 17:13:55,950 | progress   | Finished subset 90/211, 42.65 percent done
+INFO     | 2019-02-27 17:14:06,985 | progress   | Finished subset 91/211, 43.13 percent done
+INFO     | 2019-02-27 17:14:09,084 | progress   | Finished subset 92/211, 43.60 percent done
+INFO     | 2019-02-27 17:14:09,751 | progress   | Finished subset 93/211, 44.08 percent done
+INFO     | 2019-02-27 17:14:11,385 | progress   | Finished subset 94/211, 44.55 percent done
+INFO     | 2019-02-27 17:14:13,516 | progress   | Finished subset 95/211, 45.02 percent done
+INFO     | 2019-02-27 17:14:14,964 | progress   | Finished subset 96/211, 45.50 percent done
+INFO     | 2019-02-27 17:14:18,199 | progress   | Finished subset 97/211, 45.97 percent done
+INFO     | 2019-02-27 17:14:27,258 | progress   | Finished subset 98/211, 46.45 percent done
+INFO     | 2019-02-27 17:14:29,684 | progress   | Finished subset 99/211, 46.92 percent done
+INFO     | 2019-02-27 17:14:34,585 | progress   | Finished subset 100/211, 47.39 percent done
+INFO     | 2019-02-27 17:14:36,385 | progress   | Finished subset 101/211, 47.87 percent done
+INFO     | 2019-02-27 17:14:37,785 | progress   | Finished subset 102/211, 48.34 percent done
+INFO     | 2019-02-27 17:14:41,019 | progress   | Finished subset 103/211, 48.82 percent done
+INFO     | 2019-02-27 17:14:49,816 | progress   | Finished subset 104/211, 49.29 percent done
+INFO     | 2019-02-27 17:14:51,976 | progress   | Finished subset 105/211, 49.76 percent done
+INFO     | 2019-02-27 17:14:54,661 | progress   | Finished subset 106/211, 50.24 percent done
+INFO     | 2019-02-27 17:14:56,515 | progress   | Finished subset 107/211, 50.71 percent done
+INFO     | 2019-02-27 17:15:02,252 | progress   | Finished subset 108/211, 51.18 percent done
+INFO     | 2019-02-27 17:15:20,733 | progress   | Finished subset 109/211, 51.66 percent done
+INFO     | 2019-02-27 17:15:24,122 | progress   | Finished subset 110/211, 52.13 percent done
+INFO     | 2019-02-27 17:15:26,425 | progress   | Finished subset 111/211, 52.61 percent done
+INFO     | 2019-02-27 17:15:32,549 | progress   | Finished subset 112/211, 53.08 percent done
+INFO     | 2019-02-27 17:15:43,669 | progress   | Finished subset 113/211, 53.55 percent done
+INFO     | 2019-02-27 17:15:47,035 | progress   | Finished subset 114/211, 54.03 percent done
+INFO     | 2019-02-27 17:15:50,912 | progress   | Finished subset 115/211, 54.50 percent done
+INFO     | 2019-02-27 17:16:00,055 | progress   | Finished subset 116/211, 54.98 percent done
+INFO     | 2019-02-27 17:16:02,982 | progress   | Finished subset 117/211, 55.45 percent done
+INFO     | 2019-02-27 17:16:15,481 | progress   | Finished subset 118/211, 55.92 percent done
+INFO     | 2019-02-27 17:16:19,693 | progress   | Finished subset 119/211, 56.40 percent done
+INFO     | 2019-02-27 17:16:27,414 | progress   | Finished subset 120/211, 56.87 percent done
+INFO     | 2019-02-27 17:16:27,416 | method     | ***Greedy algorithm step 2***
+INFO     | 2019-02-27 17:16:32,895 | progress   | Finished subset 121/211, 57.35 percent done
+INFO     | 2019-02-27 17:16:35,094 | progress   | Finished subset 122/211, 57.82 percent done
+INFO     | 2019-02-27 17:16:37,474 | progress   | Finished subset 123/211, 58.29 percent done
+INFO     | 2019-02-27 17:16:39,166 | progress   | Finished subset 124/211, 58.77 percent done
+INFO     | 2019-02-27 17:16:40,897 | progress   | Finished subset 125/211, 59.24 percent done
+INFO     | 2019-02-27 17:16:42,174 | progress   | Finished subset 126/211, 59.72 percent done
+INFO     | 2019-02-27 17:16:43,599 | progress   | Finished subset 127/211, 60.19 percent done
+INFO     | 2019-02-27 17:16:45,512 | progress   | Finished subset 128/211, 60.66 percent done
+INFO     | 2019-02-27 17:16:48,122 | progress   | Finished subset 129/211, 61.14 percent done
+INFO     | 2019-02-27 17:16:49,937 | progress   | Finished subset 130/211, 61.61 percent done
+INFO     | 2019-02-27 17:16:53,562 | progress   | Finished subset 131/211, 62.09 percent done
+INFO     | 2019-02-27 17:17:20,229 | progress   | Finished subset 132/211, 62.56 percent done
+INFO     | 2019-02-27 17:17:23,218 | progress   | Finished subset 133/211, 63.03 percent done
+INFO     | 2019-02-27 17:17:23,781 | method     | ***Greedy algorithm step 3***
+INFO     | 2019-02-27 17:17:26,254 | progress   | Finished subset 134/211, 63.51 percent done
+INFO     | 2019-02-27 17:17:32,140 | progress   | Finished subset 135/211, 63.98 percent done
+INFO     | 2019-02-27 17:17:35,192 | progress   | Finished subset 136/211, 64.45 percent done
+INFO     | 2019-02-27 17:17:37,234 | progress   | Finished subset 137/211, 64.93 percent done
+INFO     | 2019-02-27 17:17:39,798 | progress   | Finished subset 138/211, 65.40 percent done
+INFO     | 2019-02-27 17:17:41,409 | progress   | Finished subset 139/211, 65.88 percent done
+INFO     | 2019-02-27 17:17:43,561 | progress   | Finished subset 140/211, 66.35 percent done
+INFO     | 2019-02-27 17:17:45,904 | progress   | Finished subset 141/211, 66.82 percent done
+INFO     | 2019-02-27 17:17:48,526 | progress   | Finished subset 142/211, 67.30 percent done
+INFO     | 2019-02-27 17:17:52,720 | progress   | Finished subset 143/211, 67.77 percent done
+INFO     | 2019-02-27 17:18:05,309 | progress   | Finished subset 144/211, 68.25 percent done
+INFO     | 2019-02-27 17:18:08,806 | progress   | Finished subset 145/211, 68.72 percent done
+INFO     | 2019-02-27 17:18:08,913 | method     | ***Greedy algorithm step 4***
+INFO     | 2019-02-27 17:18:11,721 | progress   | Finished subset 146/211, 69.19 percent done
+INFO     | 2019-02-27 17:18:14,451 | progress   | Finished subset 147/211, 69.67 percent done
+INFO     | 2019-02-27 17:18:17,096 | progress   | Finished subset 148/211, 70.14 percent done
+INFO     | 2019-02-27 17:18:22,771 | progress   | Finished subset 149/211, 70.62 percent done
+INFO     | 2019-02-27 17:18:24,761 | progress   | Finished subset 150/211, 71.09 percent done
+INFO     | 2019-02-27 17:18:27,050 | progress   | Finished subset 151/211, 71.56 percent done
+INFO     | 2019-02-27 17:18:30,129 | progress   | Finished subset 152/211, 72.04 percent done
+INFO     | 2019-02-27 17:18:32,182 | progress   | Finished subset 153/211, 72.51 percent done
+INFO     | 2019-02-27 17:18:37,517 | progress   | Finished subset 154/211, 72.99 percent done
+INFO     | 2019-02-27 17:18:55,481 | progress   | Finished subset 155/211, 73.46 percent done
+INFO     | 2019-02-27 17:19:05,284 | progress   | Finished subset 156/211, 73.93 percent done
+INFO     | 2019-02-27 17:19:05,632 | method     | ***Greedy algorithm step 5***
+INFO     | 2019-02-27 17:19:21,847 | progress   | Finished subset 157/211, 74.41 percent done
+INFO     | 2019-02-27 17:19:25,955 | progress   | Finished subset 158/211, 74.88 percent done
+INFO     | 2019-02-27 17:19:49,950 | progress   | Finished subset 159/211, 75.36 percent done
+INFO     | 2019-02-27 17:19:53,083 | progress   | Finished subset 160/211, 75.83 percent done
+INFO     | 2019-02-27 17:19:55,564 | progress   | Finished subset 161/211, 76.30 percent done
+INFO     | 2019-02-27 17:19:58,935 | progress   | Finished subset 162/211, 76.78 percent done
+INFO     | 2019-02-27 17:20:02,451 | progress   | Finished subset 163/211, 77.25 percent done
+INFO     | 2019-02-27 17:20:07,783 | progress   | Finished subset 164/211, 77.73 percent done
+INFO     | 2019-02-27 17:20:17,943 | progress   | Finished subset 165/211, 78.20 percent done
+INFO     | 2019-02-27 17:20:23,340 | progress   | Finished subset 166/211, 78.67 percent done
+INFO     | 2019-02-27 17:20:23,469 | method     | ***Greedy algorithm step 6***
+INFO     | 2019-02-27 17:20:26,516 | progress   | Finished subset 167/211, 79.15 percent done
+INFO     | 2019-02-27 17:20:29,556 | progress   | Finished subset 168/211, 79.62 percent done
+INFO     | 2019-02-27 17:20:32,350 | progress   | Finished subset 169/211, 80.09 percent done
+INFO     | 2019-02-27 17:20:36,584 | progress   | Finished subset 170/211, 80.57 percent done
+INFO     | 2019-02-27 17:20:40,496 | progress   | Finished subset 171/211, 81.04 percent done
+INFO     | 2019-02-27 17:20:45,974 | progress   | Finished subset 172/211, 81.52 percent done
+INFO     | 2019-02-27 17:20:50,303 | progress   | Finished subset 173/211, 81.99 percent done
+INFO     | 2019-02-27 17:21:02,190 | progress   | Finished subset 174/211, 82.46 percent done
+INFO     | 2019-02-27 17:21:07,429 | progress   | Finished subset 175/211, 82.94 percent done
+INFO     | 2019-02-27 17:21:08,332 | method     | ***Greedy algorithm step 7***
+INFO     | 2019-02-27 17:21:12,282 | progress   | Finished subset 176/211, 83.41 percent done
+INFO     | 2019-02-27 17:21:15,436 | progress   | Finished subset 177/211, 83.89 percent done
+INFO     | 2019-02-27 17:21:19,096 | progress   | Finished subset 178/211, 84.36 percent done
+INFO     | 2019-02-27 17:21:23,725 | progress   | Finished subset 179/211, 84.83 percent done
+INFO     | 2019-02-27 17:21:29,518 | progress   | Finished subset 180/211, 85.31 percent done
+INFO     | 2019-02-27 17:21:35,664 | progress   | Finished subset 181/211, 85.78 percent done
+INFO     | 2019-02-27 17:21:45,868 | progress   | Finished subset 182/211, 86.26 percent done
+INFO     | 2019-02-27 17:21:51,793 | progress   | Finished subset 183/211, 86.73 percent done
+INFO     | 2019-02-27 17:21:52,601 | method     | ***Greedy algorithm step 8***
+INFO     | 2019-02-27 17:21:57,659 | progress   | Finished subset 184/211, 87.20 percent done
+INFO     | 2019-02-27 17:21:59,492 | progress   | Finished subset 185/211, 87.68 percent done
+INFO     | 2019-02-27 17:22:03,187 | progress   | Finished subset 186/211, 88.15 percent done
+INFO     | 2019-02-27 17:22:08,105 | progress   | Finished subset 187/211, 88.63 percent done
+INFO     | 2019-02-27 17:22:13,238 | progress   | Finished subset 188/211, 89.10 percent done
+INFO     | 2019-02-27 17:22:33,051 | progress   | Finished subset 189/211, 89.57 percent done
+INFO     | 2019-02-27 17:22:43,669 | progress   | Finished subset 190/211, 90.05 percent done
+INFO     | 2019-02-27 17:22:44,035 | method     | ***Greedy algorithm step 9***
+INFO     | 2019-02-27 17:23:10,828 | progress   | Finished subset 191/211, 90.52 percent done
+INFO     | 2019-02-27 17:23:35,251 | progress   | Finished subset 192/211, 91.00 percent done
+INFO     | 2019-02-27 17:23:39,305 | progress   | Finished subset 193/211, 91.47 percent done
+INFO     | 2019-02-27 17:23:45,421 | progress   | Finished subset 194/211, 91.94 percent done
+INFO     | 2019-02-27 17:24:14,823 | progress   | Finished subset 195/211, 92.42 percent done
+INFO     | 2019-02-27 17:24:34,660 | progress   | Finished subset 196/211, 92.89 percent done
+INFO     | 2019-02-27 17:24:34,758 | method     | ***Greedy algorithm step 10***
+INFO     | 2019-02-27 17:24:41,737 | progress   | Finished subset 197/211, 93.36 percent done
+INFO     | 2019-02-27 17:24:46,972 | progress   | Finished subset 198/211, 93.84 percent done
+INFO     | 2019-02-27 17:24:53,490 | progress   | Finished subset 199/211, 94.31 percent done
+INFO     | 2019-02-27 17:25:06,589 | progress   | Finished subset 200/211, 94.79 percent done
+INFO     | 2019-02-27 17:25:13,003 | progress   | Finished subset 201/211, 95.26 percent done
+INFO     | 2019-02-27 17:25:13,237 | method     | ***Greedy algorithm step 11***
+INFO     | 2019-02-27 17:25:22,352 | progress   | Finished subset 202/211, 95.73 percent done
+INFO     | 2019-02-27 17:25:29,980 | progress   | Finished subset 203/211, 96.21 percent done
+INFO     | 2019-02-27 17:25:42,118 | progress   | Finished subset 204/211, 96.68 percent done
+INFO     | 2019-02-27 17:25:49,907 | progress   | Finished subset 205/211, 97.16 percent done
+INFO     | 2019-02-27 17:25:50,020 | method     | ***Greedy algorithm step 12***
+INFO     | 2019-02-27 17:26:01,934 | progress   | Finished subset 206/211, 97.63 percent done
+INFO     | 2019-02-27 17:26:20,030 | progress   | Finished subset 207/211, 98.10 percent done
+INFO     | 2019-02-27 17:26:31,380 | progress   | Finished subset 208/211, 98.58 percent done
+INFO     | 2019-02-27 17:26:31,483 | method     | ***Greedy algorithm step 13***
+INFO     | 2019-02-27 17:26:45,980 | progress   | Finished subset 209/211, 99.05 percent done
+INFO     | 2019-02-27 17:26:55,269 | progress   | Finished subset 210/211, 99.53 percent done
+INFO     | 2019-02-27 17:26:55,270 | method     | ***Greedy algorithm step 14***
+INFO     | 2019-02-27 17:27:21,267 | progress   | Finished subset 211/211, 100.00 percent done
+INFO     | 2019-02-27 17:27:21,268 | method     | Greedy algorithm finished after 14 steps
+INFO     | 2019-02-27 17:27:21,268 | method     | Highest scoring scheme is scheme step_13, with bic score of 42199.329
+INFO     | 2019-02-27 17:27:21,269 | reporter   | Information on best scheme is here: ./analysis/best_scheme.txt
+INFO     | 2019-02-27 17:27:21,270 | main       | Total processing time: 0:18:38 (h:m:s)
+INFO     | 2019-02-27 17:27:21,270 | main       | Processing complete.

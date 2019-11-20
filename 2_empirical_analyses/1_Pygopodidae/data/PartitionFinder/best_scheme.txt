@@ -1,0 +1,29 @@
+Settings used
+
+alignment         : ./Pygopodidae.phy
+branchlengths     : unlinked
+models            : HKY+G, GTR+I, GTR+G, HKY+I, GTR, HKY, JC+G, JC+I, JC
+model_selection   : bic
+search            : greedy
+
+
+Best partitioning scheme
+
+Scheme Name       : step_13
+Scheme lnL        : -20375.32682
+Scheme BIC        : 42199.3289719
+Number of params  : 176
+Number of sites   : 3756
+Number of subsets : 2
+
+Subset | Best Model | Subset Partitions              | Subset Sites                   | Alignment                               
+1      | GTR+G      | Gene1_pos1, Gene1_pos3, Gene2_pos1, Gene2_pos2, Gene2_pos3, Gene3_pos1, Gene3_pos2, Gene3_pos3, Gene4_pos1, Gene4_pos2, Gene4_pos3, Gene5_pos1, Gene5_pos2, Gene5_pos3 | 1-1087\3, 3-1087\3, 1088-2158\3, 1089-2158\3, 1090-2158\3, 2159-2590\3, 2160-2590\3, 2161-2590\3, 2591-2974\3, 2592-2974\3, 2593-2974\3, 2975-3756\3, 2976-3756\3, 2977-3756\3 | ./analysis/phylofiles/e0f800f0350701528307601ef9c1ca70.phy
+2      | GTR+G      | Gene1_pos2                     | 2-1087\3                       | ./analysis/phylofiles/70bf411485fb1fe3503bc4f094e24b4a.phy
+
+
+Scheme Description in PartitionFinder format
+Scheme_step_13 = (Gene1_pos1, Gene1_pos3, Gene2_pos1, Gene2_pos2, Gene2_pos3, Gene3_pos1, Gene3_pos2, Gene3_pos3, Gene4_pos1, Gene4_pos2, Gene4_pos3, Gene5_pos1, Gene5_pos2, Gene5_pos3) (Gene1_pos2);
+
+RaxML-style partition definitions
+DNA, p1 = 1-1087\3, 3-1087\3, 1088-2158\3, 1089-2158\3, 1090-2158\3, 2159-2590\3, 2160-2590\3, 2161-2590\3, 2591-2974\3, 2592-2974\3, 2593-2974\3, 2975-3756\3, 2976-3756\3, 2977-3756\3
+DNA, p2 = 2-1087\3

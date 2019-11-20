@@ -1,0 +1,37 @@
+# Initialize move/monitor counters
+mvi = 0
+mni = 0
+
+# Get the sequence data
+pygo_subset_1 = readDiscreteCharacterData("1_Pygopodidae/data/Pygopodidae_subset_1.nex")
+pygo_subset_2 = readDiscreteCharacterData("1_Pygopodidae/data/Pygopodidae_subset_2.nex")
+
+# Important counts
+taxa_pygo = pygo_subset_1.taxa()
+num_species_pygo = pygo_subset_1.ntaxa()
+num_branches_pygo = 2 * num_species_pygo - 2
+
+# Choose a tree model
+source("1_Pygopodidae/src/" + TREEMODEL + ".Rev")
+
+# Load clock model
+source("1_Pygopodidae/src/clock_model.Rev")
+
+# Load substitution model
+source("1_Pygopodidae/src/substitution_model.Rev")
+
+my_model = model(gamma_speciation)
+
+# Set up monitors
+monitors[++mni] = mnModel(filename="output/Pygopodidae_" + TREEMODEL + "_" + REPLICATE + ".log",printgen=100, separator = TAB)
+monitors[++mni] = mnFile(filename="output/Pygopodidae_" + TREEMODEL + "_" + REPLICATE + ".trees",printgen=100, separator = TAB, psi_pygo)
+
+my_mcmc = mcmc(my_model,monitors,moves)
+
+# Run analyses
+my_mcmc.burnin(10000,500)
+my_mcmc.operatorSummary()
+my_mcmc.run(500000)
+my_mcmc.operatorSummary()
+
+q()

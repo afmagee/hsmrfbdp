@@ -1,0 +1,11 @@
+# For reproducibility
+seed(46)
+
+# Choose a tree model
+TREEMODEL = "HSMRFBDP"
+
+# Which analysis number is this?
+REPLICATE = 1
+
+# Load script that loads model components and runs MCMC
+source("1_Pygopodidae/src/Pygopodidae.Rev")

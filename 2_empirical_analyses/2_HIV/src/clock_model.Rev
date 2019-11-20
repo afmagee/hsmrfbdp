@@ -1,0 +1,17 @@
+# We place a diffuse lognormal prior on all clock means, with a 95% prior CI spanning [1e-6,1e-2] per year
+clock_mu_prior_mean <- ln(1e-4)
+clock_mu_prior_var <- 4*0.587405
+
+# Branch rates for envelope alignment
+clock_mu_env ~ dnNormal(clock_mu_prior_mean,clock_mu_prior_var)
+moves[++mvi] = mvSlideBactrian(clock_mu_env,weight=2.0)
+moves[++mvi] = mvRandomDive(clock_mu_env,weight=2.0)
+moves[++mvi] = mvMirror(clock_mu_env,weight=2.0)
+
+clock_sigma_env ~ dnExponential(3)
+moves[++mvi] = mvScaleBactrian(clock_sigma_env, lambda=0.1, weight=3.0)
+
+for (i in 1:num_branches_env) {
+  branch_rates_env[i] ~ dnLognormal(clock_mu_env,clock_sigma_env)
+  moves[++mvi] = mvScaleBactrian(branch_rates_env[i], weight=0.5)
+}

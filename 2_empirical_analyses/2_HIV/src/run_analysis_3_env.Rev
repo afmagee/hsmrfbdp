@@ -1,0 +1,11 @@
+# For reproducibility
+seed(44)
+
+# Choose a tree model
+TREEMODEL = "GMRFBDP"
+
+# Which analysis number is this?
+REPLICATE = 3
+
+# Load script that loads model components and runs MCMC
+source("2_HIV/src/env.Rev")
