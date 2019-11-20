@@ -293,7 +293,7 @@ name="alignment">
     </operator>
     <operator id="origScaler_BDSKY_Serial" spec="ScaleOperator" parameter="@origin_BDSKY_Serial" scaleFactor="0.75" weight="1.0"/>
 
-    <logger id="tracelog" spec="Logger" fileName="env_subtA_run_4.log" logEvery="20000" model="@posterior" sanitiseHeaders="true" sort="smart">
+    <logger id="tracelog" spec="Logger" fileName="env_subtA_run_1.log" logEvery="20000" model="@posterior" sanitiseHeaders="true" sort="smart">
         <log idref="posterior"/>
         <log idref="likelihood"/>
         <log idref="prior"/>
@@ -322,7 +322,7 @@ name="alignment">
         <log idref="prior"/>
     </logger>
 
-    <logger id="treelog" spec="Logger" fileName="env_subtA_run_4.trees" logEvery="20000" mode="tree">
+    <logger id="treelog" spec="Logger" fileName="env_subtA_run_1.trees" logEvery="20000" mode="tree">
         <log id="TreeWithMetaDataLogger" spec="beast.evolution.tree.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock" tree="@Tree"/>
     </logger>
 
