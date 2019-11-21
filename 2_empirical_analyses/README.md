@@ -22,14 +22,14 @@ A detailed description of the files and filestructure is available at the end of
 
 #### Analyses of Pygopodidae and HIV
 Set your working directory to /hsmrfbdp/2_empirical_analyses.
-Use RevBayes to run all 8 master RevScripts in the relevant /src subdirectory, these are scripts named `run_analysis_<n>_<pygo|env>.Rev`.
+Use RevBayes to run all 8 master Rev scripts in the relevant /src subdirectory, these are scripts named `run_analysis_<n>_<pygo|env>.Rev`.
 For example, if the RevBayes executable is in your $PATH, running the 8th analysis for Pygopodidae would look like `rb 1_Pygopodidae/src/run_analysis_1_pygo.Rev`.
 The first 4 analyses are the independent replicates of the GMRF-based model analyses and the last four are the independent replicates of the HSMRF-based analyses.
 The replicates are split across separate run scripts to enable running in parallel as they each take several days.
 
 #### Sensitivity to grid size
 Set your working directory to /hsmrfbdp/2_empirical_analyses.
-Use RevBayes to run all RevScripts (`.Rev` files) in /src.
+Use RevBayes to run all Rev scripts (`.Rev` files) in /src.
 For example, if the RevBayes executable is in your $PATH, running the GMRF-based model analysis using a grid size of 10 would look like `rb 3_grid_size/src/GMRFBDP_10.Rev`
 These scripts run relatively quickly and so the multiple replicate chains per analysis are handled at the Rev level.
 
