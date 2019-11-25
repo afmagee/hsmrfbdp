@@ -9,7 +9,3 @@ Running any analyses in this repository requires an installation of [RevBayes](h
 Pre- and post-processing steps require R 3.4.4 or higher.
 All R scripts are designed to be called from the top level directory.
 Further requirements are discussed in the relevant readme files.
-
-The simulation code additionally requires [R](https://www.r-project.org/) (version) and the R packages TESS and parallel (included with base R).
-Post-processing the simulation results additionally requires the R package coda.
-In the study we used R version 3.4.4, TESS version 3.0.0, coda version 0.19-3, and parallel version 3.4.4.
