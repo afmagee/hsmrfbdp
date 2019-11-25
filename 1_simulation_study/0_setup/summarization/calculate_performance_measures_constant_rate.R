@@ -22,6 +22,14 @@ interval.midpoints <- tree.age * seq(0 + 1/(2*n.windows),1-(1/(2*n.windows)),1/n
 this.dir <- "1_simulation_study/1_constant_rate/"
 this.fold.change <- 1.0
 
+# Get true speciation rates for each time in the interval
+shift.radius <- 0
+shift.center <- 50
+simulating.params <- findParams(t.shift=shift.center,shift.radius=shift.radius,fold.change=this.fold.change,extinction=mu,target.taxa=ntaxa,tree.age=tree.age,sampling.fraction=rho)
+
+# Read in simulating values
+true.spn <- simulating.params[1]
+
 setwd(this.dir)
 
 # Read in results
@@ -30,18 +38,6 @@ constant.ess <- read.csv("summaries/CR_ess.csv",row.names=1)
 constant.median <- read.csv("summaries/CR_median.csv")
 constant.q.05 <- read.csv("summaries/CR_quantile_05.csv")
 constant.q.95 <- read.csv("summaries/CR_quantile_95.csv")
-
-# Get true speciation rates for each time in the interval
-tmp <- as.numeric(strsplit(basename(this.dir),"_")[[1]][-1])
-shift.radius <- (tmp[1] * tree.age)/2
-shift.center <- tmp[2] * tree.age
-if ( this.fold.change == 1 ) {
-  shift.center <- 50 # Doesn't techincally matter where we say the "shift" is, but this avoids TESS issues
-}
-simulating.params <- findParams(t.shift=shift.center,shift.radius=shift.radius,fold.change=this.fold.change,extinction=mu,target.taxa=ntaxa,tree.age=tree.age)
-
-# Read in simulating values
-true.spn <- simulating.params[1]
 
 # Process convergence diagnostics on model parameters
 constant.psrf.failures <- which(apply(constant.psrf,1,function(psrf){any(psrf > 1.01)}))

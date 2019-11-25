@@ -35,7 +35,7 @@ findParams <- function(t.shift,shift.radius,fold.change,extinction,target.taxa,s
         return(rate_old + prop * shift_delta)
       }
     }
-    nt <- tess.nTaxa.expected(begin=0,t=tree.age,end=tree.age,lambda=l,mu=mu,samplingProbability=rho)
+    nt <- tess.nTaxa.expected(begin=0,t=tree.age,end=tree.age,lambda=l,mu=mu,samplingProbability=sampling.fraction)
     return((nt-target.taxa)^2)
   }
   # Avoid optimizer getting lost out at infinity
